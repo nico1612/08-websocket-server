@@ -6,5 +6,4 @@ dotenv.config()
 
 const server= new ServerClass();
 
-
 server.listen()
