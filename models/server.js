@@ -18,6 +18,8 @@ export class ServerClass {
 
         // Rutas de mi aplicación
         this.routes();
+
+        this.socket();
     }
 
     middlewares() {
@@ -32,6 +34,16 @@ export class ServerClass {
 
     routes() {
 
+    }
+
+    socket(){
+        this.io.on('connection', socket=>{
+            console.log('conectado')
+
+            socket.on('disconnect', ()=>{
+                console.log('desconectado')
+            })
+        })
     }
 
     listen() {
