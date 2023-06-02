@@ -43,6 +43,9 @@ export class ServerClass {
             socket.on('disconnect', ()=>{
                 console.log('desconectado')
             })
+            socket.on('enviar-mensaje',(payload)=>{
+                console.log(payload)
+            })
         })
     }
 
