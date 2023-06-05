@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import {createServer } from "http"
 import { Server } from "socket.io";
+import { socketController } from '../sockets/controller.js';
 
 export class ServerClass {
 
@@ -37,16 +38,7 @@ export class ServerClass {
     }
 
     socket(){
-        this.io.on('connection', socket=>{
-            console.log('conectado')
-
-            socket.on('disconnect', ()=>{
-                console.log('desconectado')
-            })
-            socket.on('enviar-mensaje',(payload)=>{
-                console.log(payload)
-            })
-        })
+        this.io.on('connection', socketController)
     }
 
     listen() {
